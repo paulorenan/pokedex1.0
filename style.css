@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 4px solid black;
+  background-color: red;
+  color: white
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+#pes {
+  display: flex;
+  justify-content: center;
+}
+
+#PokName {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+#imgDiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.pkimg {
+  width: 150px;
+}

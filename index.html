@@ -5,15 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokedex 1.0</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
 </head>
-<header>
-  <h1>Pokedex 1.0</h1>
-  <p>Criado por: Paulo Renan Almeida</p>
+<header id='header'>
+  <h1 id='title'>Pokedex 1.0</h1>
+  <p id='subtitle'>Criado por: Paulo Renan Almeida</p>
 </header>
 <body>
   <main id='main'>
-    <input type="text" id='textInput'>
-    <button id='search' type="search">Pesquisar</button>
+    <div id='pes'>
+      <input type="text" id='textInput'>
+      <button id='search' type="search" class="btn btn-outline-secondary">Pesquisar</button>
+  </div>
   </main>
   <script src="script.js"></script>
 </body>
