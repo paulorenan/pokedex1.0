@@ -39,3 +39,45 @@ main {
 .pkimg {
   width: 150px;
 }
+
+#tipo {
+  display: flex;
+  justify-content: center;
+}
+
+#hab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+#habDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.habilidade {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#ata {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+#ataques {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.ataqueName {
+  margin-left: 10px;
+  margin-right: 10px;
+}

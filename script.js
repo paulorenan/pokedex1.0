@@ -1,26 +1,18 @@
 let pokemon150 = ["Bulbasaur","Ivysaur","Venusaur","Charmander","Charmeleon","Charizard","Squirtle","Wartortle","Blastoise","Caterpie","Metapod","Butterfree","Weedle","Kakuna","Beedrill","Pidgey","Pidgeotto","Pidgeot","Rattata","Raticate","Spearow","Fearow","Ekans","Arbok","Pikachu","Raichu","Sandshrew","Sandslash","Nidoran","Nidorina","Nidoqueen","Nidoran","Nidorino","Nidoking","Clefairy","Clefable","Vulpix","Ninetales","Jigglypuff","Wigglytuff","Zubat","Golbat","Oddish","Gloom","Vileplume","Paras","Parasect","Venonat","Venomoth","Diglett","Dugtrio","Meowth","Persian","Psyduck","Golduck","Mankey","Primeape","Growlithe","Arcanine","Poliwag","Poliwhirl","Poliwrath","Abra","Kadabra","Alakazam","Machop","Machoke","Machamp","Bellsprout","Weepinbell","Victreebel","Tentacool","Tentacruel","Geodude","Graveler","Golem","Ponyta","Rapidash","Slowpoke","Slowbro","Magnemite","Magneton","Farfetch'd","Doduo","Dodrio","Seel","Dewgong","Grimer","Muk","Shellder","Cloyster","Gastly","Haunter","Gengar","Onix","Drowzee","Hypno","Krabby","Kingler","Voltorb","Electrode","Exeggcute","Exeggutor","Cubone","Marowak","Hitmonlee","Hitmonchan","Lickitung","Koffing","Weezing","Rhyhorn","Rhydon","Chansey","Tangela","Kangaskhan","Horsea","Seadra","Goldeen","Seaking","Staryu","Starmie","Mr. Mime","Scyther","Jynx","Electabuzz","Magmar","Pinsir","Tauros","Magikarp","Gyarados","Lapras","Ditto","Eevee","Vaporeon","Jolteon","Flareon","Porygon","Omanyte","Omastar","Kabuto","Kabutops","Aerodactyl","Snorlax","Articuno","Zapdos","Moltres","Dratini","Dragonair","Dragonite","Mewtwo","Mew"];
 
-const main = document.getElementById('main');
-const div = document.createElement('div')
-div.id = 'mainDiv'
-main.appendChild(div);
-const mainDiv = document.getElementById('mainDiv');
+const mainDiv = document.getElementById('main');
 
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
 function pokName(numero, nome) {
-  const pName = document.createElement('p');
-  pName.id = 'PokName';
+  const pName = document.getElementById('PokName');
   pName.innerText = `Pokémon: #${numero} ${nome}`
-  mainDiv.appendChild(pName);
 }
 
 function createPokImage(imageSource) {
-  const imgDiv = document.createElement('div');
-  imgDiv.id = 'imgDiv';
-  mainDiv.appendChild(imgDiv);
+  const imgDiv = document.getElementById('imgDiv');
   imgDiv.innerHTML = ""
   const img = document.createElement('img');
   img.className = 'pkimg';
@@ -29,9 +21,7 @@ function createPokImage(imageSource) {
 }
 
 function addTypes(types) {
-  const pokTypes = document.createElement('p')
-  pokTypes.id = 'tipo';
-  mainDiv.appendChild(pokTypes);
+  const pokTypes = document.getElementById('tipo')
   if (types.length > 1) {
     pokTypes.innerText = `Tipo: ${types[0].type.name.capitalize()}, ${types[1].type.name.capitalize()}`
   } else {
@@ -40,10 +30,8 @@ function addTypes(types) {
 }
 
 function addAttacks(ataques) {
-  const divAttack = document.createElement('div');
-  divAttack.id = 'ataques';
-  mainDiv.appendChild(divAttack)
-  divAttack.innerText = 'Ataques:'
+  const divAttack = document.getElementById('ataques');
+  divAttack.innerHTML = ''
   ataques.forEach((att) => {
     const ataqueName = document.createElement('p');
     ataqueName.className = 'ataqueName';
@@ -53,10 +41,8 @@ function addAttacks(ataques) {
 };
 
 function addAbility(habilidade) {
-  const habDiv = document.createElement('div');
-  habDiv.id = 'habDiv';
-  mainDiv.appendChild(habDiv);
-  habDiv.innerText = 'Habilidades:'
+  const habDiv = document.getElementById('habDiv');
+  habDiv.innerHTML = ''
   habilidade.forEach((hab) => {
     const ability = document.createElement('p');
     ability.className = 'habilidade';
@@ -66,9 +52,7 @@ function addAbility(habilidade) {
 }
 
 const getPokemon = async (pokemon) => {
-  mainDiv.innerText = 'Loading...'
   const pokURLJson = await (await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`)).json();
-  mainDiv.innerText = ''
   pokName(pokURLJson.id, pokURLJson.name.capitalize());
   createPokImage(pokURLJson.sprites.front_default);
   addTypes(pokURLJson.types);
