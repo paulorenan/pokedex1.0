@@ -43,21 +43,36 @@ function addAttacks(ataques) {
   const divAttack = document.createElement('div');
   divAttack.id = 'ataques';
   mainDiv.appendChild(divAttack)
-  divAttack.innerHTML = ''
+  divAttack.innerText = 'Ataques:'
   ataques.forEach((att) => {
     const ataqueName = document.createElement('p');
     ataqueName.className = 'ataqueName';
-    ataqueName.innerText = att.move.name;
+    ataqueName.innerText = att.move.name.replace('-', ' ').capitalize();
     divAttack.appendChild(ataqueName);
   });
+};
+
+function addAbility(habilidade) {
+  const habDiv = document.createElement('div');
+  habDiv.id = 'habDiv';
+  mainDiv.appendChild(habDiv);
+  habDiv.innerText = 'Habilidades:'
+  habilidade.forEach((hab) => {
+    const ability = document.createElement('p');
+    ability.className = 'habilidade';
+    ability.innerText = hab.ability.name.replace('-', ' ').capitalize();
+    habDiv.appendChild(ability)
+  })
 }
 
 const getPokemon = async (pokemon) => {
+  mainDiv.innerText = 'Loading...'
   const pokURLJson = await (await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`)).json();
-  mainDiv.innerHTML = ''
+  mainDiv.innerText = ''
   pokName(pokURLJson.id, pokURLJson.name.capitalize());
   createPokImage(pokURLJson.sprites.front_default);
   addTypes(pokURLJson.types);
+  addAbility(pokURLJson.abilities)
   addAttacks(pokURLJson.moves)
 }
 
