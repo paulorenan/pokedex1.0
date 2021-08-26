@@ -9,6 +9,14 @@ function pokName(numero, nome) {
   pName.innerText = `Pokémon: #${numero} ${nome}`
 }
 
+function createPokImage(imageSource) {
+  const imgDiv = document.getElementById('pokImage')
+  const img = document.createElement('img');
+  img.className = 'pkimg';
+  img.src = imageSource;
+  imgDiv.appendChild(img)
+}
+
 const getPokemon = async (pokemon) => {
   const pokUrl = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`)
   const pokURLJson = await pokUrl.json();
@@ -16,8 +24,10 @@ const getPokemon = async (pokemon) => {
   const pokname = pokURLJson.name.capitalize();
   const pokNumber = pokURLJson.id;
   pokName(pokNumber, pokname);
+  const pkimg = pokURLJson.sprites.front_default;
+  createPokImage(pkimg)
 }
 
 window.onload = async () => {
-  await getPokemon('Mew')
+  await getPokemon('ditto')
 }
