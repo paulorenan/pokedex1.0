@@ -7,9 +7,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-bottom: 4px solid black;
+  border-bottom: 8px solid black;
   background-color: red;
-  color: white
+  color: white;
+  padding: 20px;
+  height: 145px;
+}
+
+#ball {
+  border: 8px solid black;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  top: 110px;
+  left: 49%;
+  z-index: 1;
+  background-color: white;
 }
 
 main {
@@ -21,6 +35,7 @@ main {
 #pes {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 
 #PokName {
