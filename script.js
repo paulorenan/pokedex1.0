@@ -83,7 +83,9 @@ const addAttacks = async (move) => {
   if (atackURL.type.name === 'ice') aType.classList.add('ice');
   if (atackURL.type.name === 'fighting') aType.classList.add('fight');
   if (atackURL.type.name === 'psychic') aType.classList.add('psychic');
-
+  if (atackURL.damage_class.name === 'physical') aDamage.classList.add('physical');
+  if (atackURL.damage_class.name === 'status') aDamage.classList.add('status');
+  if (atackURL.damage_class.name === 'special') aDamage.classList.add('special');
   divata.appendChild(aName);  
   divata.appendChild(aType);
   divata.appendChild(aDamage);

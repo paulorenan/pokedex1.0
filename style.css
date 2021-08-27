@@ -106,13 +106,18 @@ main {
   flex-direction: column;
   flex-wrap: wrap;
   margin-bottom: 0;
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
+  align-self: center;
 }
 
 .ataque {
+  font-weight: bolder;
   border: 1px solid black;
   padding: 0px;
   margin-bottom: 0;
-  width: 115px;
+  width: 125px;
   text-align: center;
 }
 
@@ -199,3 +204,29 @@ main {
 .water {
   background-color: rgb(84,164,228);
 }
+
+.physical {
+  background-image: url(https://www.serebii.net/pokedex-bw/type/physical.png);
+  background-size: 100%;
+  background-position: center;
+  color: white;
+  text-shadow: 0.1em 0.1em 0.2em black
+}
+
+.special {
+background-image: url(https://www.serebii.net/pokedex-bw/type/special.png);
+background-size: 100%;
+background-position: center;
+color: white;
+text-shadow: 0.1em 0.1em 0.2em black
+
+}
+
+.status {
+  background-image: url(https://www.serebii.net/pokedex-bw/type/other.png);
+  background-size: 100%;
+  background-position: center;
+  color: black;
+  text-shadow: 0.1em 0.1em 0.2em black
+}
+
