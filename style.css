@@ -112,7 +112,7 @@ main {
   border: 1px solid black;
   padding: 0px;
   margin-bottom: 0;
-  width: 110px;
+  width: 115px;
   text-align: center;
 }
 
@@ -126,5 +126,76 @@ main {
 
 .divata {
   display: flex;
+}
 
+.normal {
+  background-color: rgb(168,164,164);
+}
+
+.grass {
+  background-color: rgb(138,197,111);
+}
+
+.poison {
+  background-color: rgb(172,100,150);
+}
+
+.bug {
+  background-color: rgb(180,193,60);
+}
+
+.fire {
+  background-color: rgb(240,82,44);
+}
+
+.dark {
+  background-color: rgb(111,100,89);
+}
+
+.dragon {
+  background-color: rgb(132,116,186);
+}
+
+.electric {
+  background-color: #f2c940;
+}
+
+.fairy {
+  background-color: rgb(243,179,244);
+}
+
+.fight {
+  background-color: rgb(119,82,72);
+}
+
+.flying {
+  background-color: rgb(155,164,224);
+}
+
+.ghost {
+  background-color: rgb(105,98,158);
+}
+
+.ground {
+  background-color: rgb(196,164,116);
+}
+
+.ice {
+  background-color: rgb(95,212,230);
+}
+
+.psychic {
+  background-color: rgb(213,138,159);
+}
+
+.rock {
+  background-color: rgb(164,148,108);
+}
+
+.steel {
+  background-color: rgb(167,164,181);
+}
+
+.water {
+  background-color: rgb(84,164,228);
 }

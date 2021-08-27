@@ -56,13 +56,37 @@ const addAttacks = async (move) => {
   aPP.className = 'ataque';
   const aCcuracy = document.createElement('p');
   aCcuracy.className = 'ataque';
+  const aDamage = document.createElement('p');
+  aDamage.className = 'ataque';
   aName.innerText = `Nome: ${atackURL.name.replace('-', ' ').capitalize()}`
   aType.innerText = `Tipo: ${atackURL.type.name.capitalize()}`
   aPower.innerText = `Power: ${(atackURL.power === null? '--' : atackURL.power)}`
   aPP.innerText = `PP: ${atackURL.pp}`
   aCcuracy.innerText = `Accuracy: ${(atackURL.accuracy === null? '--' : atackURL.accuracy)}`
+  aDamage.innerText = `Class: ${atackURL.damage_class.name.capitalize()}`
+  if (atackURL.type.name === 'normal') aType.classList.add('normal');
+  if (atackURL.type.name === 'grass') aType.classList.add('grass');  
+  if (atackURL.type.name === 'fire') aType.classList.add('fire'); 
+  if (atackURL.type.name === 'poison') aType.classList.add('poison');
+  if (atackURL.type.name === 'water') aType.classList.add('water');
+  if (atackURL.type.name === 'bug') aType.classList.add('bug');
+  if (atackURL.type.name === 'electric') aType.classList.add('electric');
+  if (atackURL.type.name === 'ghost') aType.classList.add('ghost');
+  if (atackURL.type.name === 'dark') aType.classList.add('dark');
+  if (atackURL.type.name === 'water') aType.classList.add('water');
+  if (atackURL.type.name === 'steel') aType.classList.add('steel');
+  if (atackURL.type.name === 'ground') aType.classList.add('ground');
+  if (atackURL.type.name === 'rock') aType.classList.add('rock');
+  if (atackURL.type.name === 'dragon') aType.classList.add('dragon');
+  if (atackURL.type.name === 'fairy') aType.classList.add('fairy');
+  if (atackURL.type.name === 'flying') aType.classList.add('flying');
+  if (atackURL.type.name === 'ice') aType.classList.add('ice');
+  if (atackURL.type.name === 'fighting') aType.classList.add('fight');
+  if (atackURL.type.name === 'psychic') aType.classList.add('psychic');
+
   divata.appendChild(aName);  
   divata.appendChild(aType);
+  divata.appendChild(aDamage);
   divata.appendChild(aPower);
   divata.appendChild(aPP);
   divata.appendChild(aCcuracy);
