@@ -54,6 +54,8 @@ function addAbility(habilidade) {
 const getPokemon = async (pokemon) => {
   const pokURLJson = await (await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`)).json();
   pokName(pokURLJson.id, pokURLJson.name.capitalize());
+  sessionStorage.clear()
+  localStorage.setItem('pokNumber', pokURLJson.id)
   createPokImage(pokURLJson.sprites.front_default);
   addTypes(pokURLJson.types);
   addAbility(pokURLJson.abilities)
@@ -65,8 +67,28 @@ function searchButton() {
   getPokemon(inpuit.value);
 }
 
+function previous() {
+  const number = localStorage.getItem('pokNumber')
+  if (number === '1') {
+    console.log('esse é o primeiro')
+  } else getPokemon((number - 1).toString())
+}
+
+function next() {
+  const number = parseInt(localStorage.getItem('pokNumber'));
+  if (number === '898') {
+    console.log('esse é o ultimo')
+  } else getPokemon((number + 1).toString())
+}
+
 const button = document.getElementById('search');
 button.addEventListener('click', searchButton);
+
+const anterior = document.getElementById('previous');
+anterior.addEventListener('click', previous);
+
+const proximo = document.getElementById('next');
+proximo.addEventListener('click', next)
 
 window.onload = async () => {
   await getPokemon('bulbasaur');

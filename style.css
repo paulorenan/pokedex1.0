@@ -35,7 +35,13 @@ main {
 #pes {
   display: flex;
   justify-content: center;
+  justify-items: center;
   margin-top: 20px;
+}
+
+#previous, #next {
+  margin: 0;
+  padding: 10px;
 }
 
 #PokName {
