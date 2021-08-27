@@ -44,6 +44,10 @@ main {
   padding: 10px;
 }
 
+#previous, #next:hover{
+  cursor: pointer;
+}
+
 #PokName {
   display: flex;
   justify-content: center;
