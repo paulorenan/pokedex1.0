@@ -76,7 +76,7 @@ function previous() {
 
 function next() {
   const number = parseInt(localStorage.getItem('pokNumber'));
-  if (number === '898') {
+  if (number === 898) {
     console.log('esse é o ultimo')
   } else getPokemon((number + 1).toString())
 }
