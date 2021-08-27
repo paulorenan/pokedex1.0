@@ -47,23 +47,23 @@ const addAttacks = async (move) => {
   divata.className = 'divata';
   divAttack.appendChild(divata);
   const aName = document.createElement('p');
-  aName.className = 'ataqueName';
+  aName.className = 'ataque ataqueName';
   const aType = document.createElement('p');
-  aType.className = 'ataque';
+  aType.className = 'ataque atype';
   const aPower = document.createElement('p');
-  aPower.className = 'ataque';
+  aPower.className = 'ataque apower';
   const aPP = document.createElement('p');
-  aPP.className = 'ataque';
+  aPP.className = 'ataque app';
   const aCcuracy = document.createElement('p');
   aCcuracy.className = 'ataque';
   const aDamage = document.createElement('p');
-  aDamage.className = 'ataque';
-  aName.innerText = `Nome: ${atackURL.name.replace('-', ' ').capitalize()}`
-  aType.innerText = `Tipo: ${atackURL.type.name.capitalize()}`
+  aDamage.className = 'ataque damage';
+  aName.innerText = `${atackURL.name.replace('-', ' ').capitalize()}`
+  aType.innerText = `${atackURL.type.name.capitalize()}`
   aPower.innerText = `Power: ${(atackURL.power === null? '--' : atackURL.power)}`
   aPP.innerText = `PP: ${atackURL.pp}`
   aCcuracy.innerText = `Accuracy: ${(atackURL.accuracy === null? '--' : atackURL.accuracy)}`
-  aDamage.innerText = `Class: ${atackURL.damage_class.name.capitalize()}`
+  aDamage.innerText = `${atackURL.damage_class.name.capitalize()}`
   if (atackURL.type.name === 'normal') aType.classList.add('normal');
   if (atackURL.type.name === 'grass') aType.classList.add('grass');  
   if (atackURL.type.name === 'fire') aType.classList.add('fire'); 

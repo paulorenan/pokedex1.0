@@ -117,7 +117,7 @@ main {
   border: 1px solid black;
   padding: 0px;
   margin-bottom: 0;
-  width: 125px;
+  width: 135px;
   text-align: center;
 }
 
@@ -125,8 +125,24 @@ main {
   border: 1px solid black;
   padding: 0px;
   margin-bottom: 0;
-  width: 170px;
+  width: 140px;
   text-align: center;
+}
+
+.damage {
+  width: 70px;
+}
+
+.atype {
+  width: 70px;
+}
+
+.app {
+  width: 80px;
+}
+
+.apower {
+  width: 100px;
 }
 
 .divata {
@@ -227,6 +243,6 @@ text-shadow: 0.1em 0.1em 0.2em black
   background-size: 100%;
   background-position: center;
   color: black;
-  text-shadow: 0.1em 0.1em 0.2em black
+  text-shadow: 0.1em 0.1em 0.2em white
 }
 
