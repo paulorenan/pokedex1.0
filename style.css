@@ -103,15 +103,28 @@ main {
 
 #ataques {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
   margin-bottom: 0;
+}
+
+.ataque {
+  border: 1px solid black;
+  padding: 0px;
+  margin-bottom: 0;
+  width: 110px;
+  text-align: center;
 }
 
 .ataqueName {
   border: 1px solid black;
   padding: 0px;
   margin-bottom: 0;
-  width: 125px;
+  width: 170px;
   text-align: center;
+}
+
+.divata {
+  display: flex;
+
 }

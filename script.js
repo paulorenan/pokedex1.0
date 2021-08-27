@@ -1,6 +1,7 @@
 let pokemon150 = ["Bulbasaur","Ivysaur","Venusaur","Charmander","Charmeleon","Charizard","Squirtle","Wartortle","Blastoise","Caterpie","Metapod","Butterfree","Weedle","Kakuna","Beedrill","Pidgey","Pidgeotto","Pidgeot","Rattata","Raticate","Spearow","Fearow","Ekans","Arbok","Pikachu","Raichu","Sandshrew","Sandslash","Nidoran","Nidorina","Nidoqueen","Nidoran","Nidorino","Nidoking","Clefairy","Clefable","Vulpix","Ninetales","Jigglypuff","Wigglytuff","Zubat","Golbat","Oddish","Gloom","Vileplume","Paras","Parasect","Venonat","Venomoth","Diglett","Dugtrio","Meowth","Persian","Psyduck","Golduck","Mankey","Primeape","Growlithe","Arcanine","Poliwag","Poliwhirl","Poliwrath","Abra","Kadabra","Alakazam","Machop","Machoke","Machamp","Bellsprout","Weepinbell","Victreebel","Tentacool","Tentacruel","Geodude","Graveler","Golem","Ponyta","Rapidash","Slowpoke","Slowbro","Magnemite","Magneton","Farfetch'd","Doduo","Dodrio","Seel","Dewgong","Grimer","Muk","Shellder","Cloyster","Gastly","Haunter","Gengar","Onix","Drowzee","Hypno","Krabby","Kingler","Voltorb","Electrode","Exeggcute","Exeggutor","Cubone","Marowak","Hitmonlee","Hitmonchan","Lickitung","Koffing","Weezing","Rhyhorn","Rhydon","Chansey","Tangela","Kangaskhan","Horsea","Seadra","Goldeen","Seaking","Staryu","Starmie","Mr. Mime","Scyther","Jynx","Electabuzz","Magmar","Pinsir","Tauros","Magikarp","Gyarados","Lapras","Ditto","Eevee","Vaporeon","Jolteon","Flareon","Porygon","Omanyte","Omastar","Kabuto","Kabutops","Aerodactyl","Snorlax","Articuno","Zapdos","Moltres","Dratini","Dragonair","Dragonite","Mewtwo","Mew"];
 
 const mainDiv = document.getElementById('main');
+const divAttack = document.getElementById('ataques');
 
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
@@ -29,17 +30,6 @@ function addTypes(types) {
   }
 }
 
-function addAttacks(ataques) {
-  const divAttack = document.getElementById('ataques');
-  divAttack.innerHTML = ''
-  ataques.forEach((att) => {
-    const ataqueName = document.createElement('p');
-    ataqueName.className = 'ataqueName';
-    ataqueName.innerText = att.move.name.replace('-', ' ').capitalize();
-    divAttack.appendChild(ataqueName);
-  });
-};
-
 function addAbility(habilidade) {
   const habDiv = document.getElementById('habDiv');
   habDiv.innerHTML = ''
@@ -51,6 +41,33 @@ function addAbility(habilidade) {
   })
 }
 
+const addAttacks = async (move) => {
+  const atackURL = await (await fetch(move.move.url)).json();
+  const divata = document.createElement('div')
+  divata.className = 'divata';
+  divAttack.appendChild(divata);
+  const aName = document.createElement('p');
+  aName.className = 'ataqueName';
+  const aType = document.createElement('p');
+  aType.className = 'ataque';
+  const aPower = document.createElement('p');
+  aPower.className = 'ataque';
+  const aPP = document.createElement('p');
+  aPP.className = 'ataque';
+  const aCcuracy = document.createElement('p');
+  aCcuracy.className = 'ataque';
+  aName.innerText = `Nome: ${atackURL.name.replace('-', ' ').capitalize()}`
+  aType.innerText = `Tipo: ${atackURL.type.name.capitalize()}`
+  aPower.innerText = `Power: ${(atackURL.power === null? '--' : atackURL.power)}`
+  aPP.innerText = `PP: ${atackURL.pp}`
+  aCcuracy.innerText = `Accuracy: ${(atackURL.accuracy === null? '--' : atackURL.accuracy)}`
+  divata.appendChild(aName);  
+  divata.appendChild(aType);
+  divata.appendChild(aPower);
+  divata.appendChild(aPP);
+  divata.appendChild(aCcuracy);
+}
+
 const getPokemon = async (pokemon) => {
   const pokURLJson = await (await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`)).json();
   pokName(pokURLJson.id, pokURLJson.name.capitalize());
@@ -59,7 +76,10 @@ const getPokemon = async (pokemon) => {
   createPokImage(pokURLJson.sprites.front_default);
   addTypes(pokURLJson.types);
   addAbility(pokURLJson.abilities)
-  addAttacks(pokURLJson.moves)
+  divAttack.innerHTML = ''
+  pokURLJson.moves.forEach((move) => {
+    addAttacks(move)
+  })
 }
 
 function searchButton() {
