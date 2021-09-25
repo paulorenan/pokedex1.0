@@ -21,7 +21,7 @@
   border-radius: 50%;
   position: absolute;
   top: 110px;
-  left: 47%;
+  left: calc(50% - 30px);
   z-index: 1;
   background-color: white;
 }
